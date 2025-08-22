@@ -1,0 +1,10 @@
+[
+  {
+    "id": "mission-manager",
+    "title": "MissionManager",
+    "summary": "ミッション/タスク管理のデスクトップアプリ。",
+    "tags": ["Desktop", "PySide6"],
+    "stack": ["Python", "PySide6"],
+    "links": { "github": "https://github.com/yourname/mission-manager" }
+  }
+]
