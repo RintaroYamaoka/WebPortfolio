@@ -1,12 +1,12 @@
 (async function () {
-    const container = document.querySelector("#project");
+    const container = document.querySelector("#project-body");
 
     // URLの検索パラメータを扱うオブジェクトを作成
     const params = new URLSearchParams(location.search);
     const id = params.get("id");
 
     if (!id) {
-        container.innerHTML = "<p>id が指定されていません。<p>";
+        container.innerHTML = "<p>id が指定されていません。</p>";
         return;
     }
 
@@ -19,14 +19,14 @@
         // 配列の中から、idが一致する1件を探す
         const p = projects.find(x => x.id === id);
         if (!p) {
-            container.innerHTML = `<p>指定のプロジェクトが見つかりません: ${id}<p>`;
+            container.innerHTML = `<p>指定のプロジェクトが見つかりません: ${id}</>`;
             return;
         }
 
         // 詳細HTMLを組み立て
         container.innerHTML = `
-            <h2>${escape_html(p.title)}<h2>
-            <p>${escape_html(p.summary || "")}<p>
+            <h2>${escape_html(p.title)}</h2>
+            <p>${escape_html(p.summary || "")}</p>
 
             <h3>技術スタック</h3>
             <ul>${(p.stack || []).map(s =>`<li>${escape_html(s)}</li>`).join("")}</ul>

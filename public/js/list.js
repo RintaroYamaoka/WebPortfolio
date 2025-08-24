@@ -3,7 +3,7 @@
 
     // 差し込み先を取得
     // querySelector("#projects") は CSSセレクタ で要素を1個だけ取得
-    const container = document.querySelector("#projects");
+    const container = document.querySelector("#projects-list");
 
     // 読み込み中UI
     // innerHTML は「この要素の中身のHTML」を文字列で挿入するプロパティ
@@ -34,7 +34,7 @@
         // try内でエラーが起きたときに入ってくる場所
         // 失敗時UI
         // console.error(err) で開発者ツール（F12 → Console）に赤いエラーを出す
-        consolel.error(err);
+        console.error(err);
         // 画面上にはユーザー向けエラーメッセージ
         container.innerHTML = "<p>データの読み込みに失敗しました。<p/>";
     }

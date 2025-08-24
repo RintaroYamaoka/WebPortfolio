@@ -5,6 +5,14 @@
     "summary": "ミッション/タスク管理のデスクトップアプリ。",
     "tags": ["Desktop", "PySide6"],
     "stack": ["Python", "PySide6"],
-    "links": { "github": "https://github.com/yourname/mission-manager" }
+    "links": { "github": "" }
+  },
+  {
+    "id": "MT5toGit",
+    "title": "MT5toGit",
+    "summary": "mt5のプロジェクトフォルダをGit管理できるuft-8仕様のフォルダに修正するツール",
+    "tags": ["Desktop", "PySide6"],
+    "stack": ["Python", "PySide6"],
+    "links": { "github": "" }
   }
 ]
