@@ -8,28 +8,79 @@ function render_not_found(container, id) {
 }
 
 
+function render_images(images, alt_base = "") {
+  if (!images?.length) return "";
+
+  const items = images.map((src, i) => {
+    const alt = `${alt_base || "screenshot"} #${i + 1}`;
+    return `<img class="thumb" src="${escape_html(String(src))}" alt="${escape_html(alt)}">`;
+  }).join("");
+
+  return `
+    <div class="thumb-track" aria-label="screenshots">
+      ${items}
+    </div>
+  `;
+}
+
+
+function render_links(links) {
+  if (!links || typeof links !== "object") return "";
+
+  const to_label = (key) => {
+    if (key === "github") return "GitHub";
+    if (key === "download") return "Download";
+    return String(key).charAt(0).toUpperCase() + String(key).slice(1);
+  };
+
+  const items = Object.entries(links)
+    .filter(([, href]) => typeof href === "string" && href.trim() !== "")
+    .map(([key, href]) => {
+      const label = to_label(key);
+      // URLは属性値エスケープ、ラベルはテキストエスケープ
+      return `<li><a href="${escape_html(href)}" target="_blank" rel="noopener">${escape_html(label)}</a></li>`;
+    })
+    .join("");
+
+  if (!items) return "";
+
+  return `
+    <section>
+      <h3>リンク</h3>
+      <ul>${items}</ul>
+    </section>
+  `;
+}
+
+
 function render_project(container, p) {
   const title = escape_html(p.id);
+  const genre = escape_html(p.genre);
   const summary = escape_html(p.summary || "");
+  const thumbs = render_images(p.images, p.id || "");
   const stack_items = (p.stack || []).map(s => `<li>${escape_html(s)}</li>`).join("");
-  const github = p.links?.github
-    ? `<li><a href="${p.links.github}" target="_blank" rel="noopener">GitHub</a></li>`
-    : "";
+  const links_section = render_links(p.links);
 
   container.innerHTML = `
     <article class="project-detail">
-      <header><h1>${title}</h1></header>
-      ${summary ? `<section><p>${summary}</p></section>` : ""}
+      <header>
+        <h1>${title}</h1>
+        <p>#${genre}</p>
+      </header>
+      ${thumbs}
+
+      ${summary ? `
+        <section>
+          <p>${summary}</p>
+        </section>` : ""}
+
       ${stack_items ? `
         <section>
           <h3>技術スタック</h3>
           <ul>${stack_items}</ul>
         </section>` : ""}
-      ${github ? `
-        <section>
-          <h3>リンク</h3>
-          <ul>${github}</ul>
-        </section>` : ""}
+        
+      ${links_section}
     </article>
   `;
 }

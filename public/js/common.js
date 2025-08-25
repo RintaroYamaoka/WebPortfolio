@@ -29,25 +29,22 @@ export function escape_html(s) {
 }
 
 
-// 1件分のカードHTML（一覧用）
+// 1件分のカードHTML（一覧用）引数はlist
 export function render_card(p) {
   const id = escape_html(p.id);
+  const genre = escape_html(p.genre);
   const summary = escape_html(p.summary || "");
-  const tags = (p.tags || []).map(t => `<li>${escape_html(t)}</li>`).join("");
+  const stack = (p.stack || []).map(t => `<li>${escape_html(t)}</li>`).join("");
   const detail_url = `./project.html?id=${encodeURIComponent(p.id)}`;
-  const github = p.links?.github
-    ? `<a href="${p.links.github}" target="_blank" rel="noopener">GitHub</a>`
-    : "";
 
   return `
-    <article class="card">
+    <a class="card" href="${detail_url}">
       <h3>${id}</h3>
       <p>${summary}</p>
-      ${tags ? `<ul class="tags">${tags}</ul>` : ""}
-      <div class="row">
-        <a href="${detail_url}">詳細</a>
-        ${github}
-      </div>
-    </article>
+      <div class="tags"> 
+        <p>#${genre}</p>
+        ${stack ? `<ul class="tags">${stack}</ul>` : ""}
+      </div>  
+    </a>
   `;
 }

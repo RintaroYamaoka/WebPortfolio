@@ -1,0 +1,13 @@
+{
+    "id": "プロジェクト名",
+    "genre": "ジャンル",
+    "summary": "詳細ページ本文",
+    "stack": ["スタック", スタック"],
+    "links": {
+      "github": "githublink",
+      "download":"./downloads/ファイル名"
+    },
+    "images": [
+        "./images/ファイル名",
+        ]
+  }
