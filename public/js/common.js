@@ -8,7 +8,13 @@ export async function load_projects() {
   if (!res.ok) {
     throw new Error(`failed to load projects.json: ${res.status} ${res.statusText}`);
   }
-  return res.json();
+  const data = await res.json();
+
+  // 契約を作る：常に配列を返す
+  if (!Array.isArray(data)) throw new Error("projects must be an array");
+  
+  return data;
+
 }
 
 

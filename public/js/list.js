@@ -12,7 +12,7 @@ async function init() {
   try {
     const projects = await load_projects();
 
-    if (!Array.isArray(projects) || projects.length === 0) {
+    if (projects.length === 0) {
       container.innerHTML = "<p>プロジェクトが見つかりません。</p>";
       return;
     }

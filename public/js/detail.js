@@ -50,7 +50,7 @@ async function init() {
 
   try {
     const projects = await load_projects();
-    const p = Array.isArray(projects) ? projects.find(x => x.id === id) : null;
+    const p = projects.find(x => x.id === id);
     if (!p) return render_not_found(container, id);
     render_project(container, p);
   } catch (err) {
