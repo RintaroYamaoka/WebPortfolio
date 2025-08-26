@@ -1,0 +1,104 @@
+/* style.css */
+
+/* 全体 */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  margin: 0;
+  background: #121212;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+/* ヘッダー */
+header {
+  background: #1f1f1f;
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid #333;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #00d4ff;
+}
+
+/* ジャンルナビ */
+#genre-nav {
+  padding: 1rem;
+  text-align: center;
+}
+
+#genre-nav a,
+#genre-nav strong {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #ccc;
+}
+
+#genre-nav a:hover {
+  color: #00d4ff;
+}
+
+
+/* フッター */
+footer.footer-all {
+  text-align: center;
+  padding: 1rem;
+  background: #1f1f1f;
+  border-top: 1px solid #333;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* プロジェクトカード */
+#projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+#projects-list .card {
+  display: flex;
+  flex-direction: column;
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+#projects-list .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+#projects-list .card img.thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+#projects-list .card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 1rem 0.3rem;
+  color: #00d4ff;
+}
+
+#projects-list .card p {
+  margin: 0 1rem 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  flex-grow: 1;
+}
+
+#projects-list .card .tags {
+  margin: 0.5rem 1rem 1rem;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
