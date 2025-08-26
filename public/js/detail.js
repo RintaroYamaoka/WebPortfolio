@@ -55,17 +55,22 @@ function render_links(links) {
 
 function render_project(container, p) {
   const title = escape_html(p.id);
-  const genre = escape_html(p.genre);
+  const genres = Array.isArray(p.genre) ? p.genre : [p.genre];
   const summary = escape_html(p.summary || "");
   const thumbs = render_images(p.images, p.id || "");
   const stack_items = (p.stack || []).map(s => `<li>${escape_html(s)}</li>`).join("");
   const links_section = render_links(p.links);
 
+  const back_links = genres.map(g =>
+    `<p><a href="./?genre=${encodeURIComponent(g)}">← ${escape_html(g)} 一覧へ</a></p>`
+  ).join("");
+
   container.innerHTML = `
     <article class="project-detail">
       <header>
         <h1>${title}</h1>
-        <p>#${genre}</p>
+        <p>${genres.map(g => `#${escape_html(g)}`).join(" ")}</p>
+        ${back_links || `<p><a href="./">← 一覧へ</a></p>`}
       </header>
       ${thumbs}
 

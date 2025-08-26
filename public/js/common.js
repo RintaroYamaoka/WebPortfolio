@@ -27,24 +27,3 @@ export function escape_html(s) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 }
-
-
-// 1件分のカードHTML（一覧用）引数はlist
-export function render_card(p) {
-  const id = escape_html(p.id);
-  const genre = escape_html(p.genre);
-  const summary = escape_html(p.summary || "");
-  const stack = (p.stack || []).map(t => `<li>${escape_html(t)}</li>`).join("");
-  const detail_url = `./project.html?id=${encodeURIComponent(p.id)}`;
-
-  return `
-    <a class="card" href="${detail_url}">
-      <h3>${id}</h3>
-      <p>${summary}</p>
-      <div class="tags"> 
-        <p>#${genre}</p>
-        ${stack ? `<ul class="tags">${stack}</ul>` : ""}
-      </div>  
-    </a>
-  `;
-}

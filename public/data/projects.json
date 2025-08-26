@@ -1,7 +1,7 @@
 [
   {
     "id": "MissionManager",
-    "genre": "SystemTrade",
+    "genre": ["DesktopApp"],
     "summary": "ミッション/タスク管理のデスクトップアプリ。",
     "stack": ["Python", "PySide6"],
     "links": {
@@ -14,7 +14,7 @@
   },
   {
     "id": "MT5toGit",
-    "genre": "SystemTrade",
+    "genre": ["SystemTrade", "DesktopApp"],
     "summary": "mt5のプロジェクト（utf-16）からGit管理できるフォルダ（utf-8）を生成するツール",
     "stack": ["Python", "PySide6"],
     "links": {
