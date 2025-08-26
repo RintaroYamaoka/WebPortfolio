@@ -24,6 +24,25 @@ function render_images(images, alt_base = "") {
 }
 
 
+function render_description(desc) {
+  if (!desc) return "";
+
+  // ① 配列: 各要素を段落に
+  if (Array.isArray(desc)) {
+    return desc
+      .filter(Boolean)
+      .map(p => `<p>${escape_html(String(p))}</p>`)
+      .join("");
+  }
+
+  if (!paragraphs.length) return "";
+
+  return paragraphs
+    .map(p => `<p>${escape_html(p)}</p>`)
+    .join("");
+}
+
+
 function render_links(links) {
   if (!links || typeof links !== "object") return "";
 
@@ -72,20 +91,24 @@ function render_project(container, p) {
         <p>${genres.map(g => `#${escape_html(g)}`).join(" ")}</p>
         ${back_links || `<p><a href="./">← 一覧へ</a></p>`}
       </header>
-      ${thumbs}
+        ${thumbs}
 
-      ${summary ? `
+      　${summary ? `
         <section>
           <p>${summary}</p>
         </section>` : ""}
 
-      ${stack_items ? `
-        <section>
-          <h3>技術スタック</h3>
-          <ul>${stack_items}</ul>
-        </section>` : ""}
+        <section class="description">
+        ${render_description(p.description)}
+      　</section>
+
+        ${stack_items ? `
+          <section>
+            <h3>技術スタック</h3>
+            <ul>${stack_items}</ul>
+          </section>` : ""}
         
-      ${links_section}
+        ${links_section}
     </article>
   `;
 }

@@ -3,6 +3,10 @@
     "id": "EA_Framework",
     "genre": ["SystemTrade"],
     "summary": "MT5用EA作成用ライブラリ",
+    "description": [
+      "EA作成、バックテスト、選別、のサイクルを回すためには、EAフレームワークの構築が不可欠。",
+      "EAクラス→各モジュールクラス→MT5API の依存関係を厳守して、戦略ロジックの差し替えを容易にするEAフレームワークです。"
+    ],  
     "stack": ["MQL5"],
     "links": {
       "github": "https://github.com/RintaroYamaoka/EA_Fremework-Backup",
@@ -17,6 +21,7 @@
     "genre": ["DesktopApp"],
     "summary": "ミッション/タスク管理のデスクトップアプリ。",
     "stack": ["Python", "PySide6"],
+    "description": [],
     "links": {
       "github": "githublink",
       "download":""
@@ -27,6 +32,7 @@
     "id": "MT5toGit",
     "genre": ["SystemTrade", "DesktopApp"],
     "summary": "mt5のプロジェクト（utf-16）からGit管理できるフォルダ（utf-8）を生成するツール",
+    "description": [],
     "stack": ["Python", "PySide6"],
     "links": {
       "github": "",

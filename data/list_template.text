@@ -1,7 +1,8 @@
 {
     "id": "プロジェクト名",
     "genre": "ジャンル",
-    "summary": "詳細ページ本文",
+    "summary": "カード用説明文",
+    "description": ["詳細ページ本文"],
     "stack": ["スタック", スタック"],
     "links": {
       "github": "githublink",
